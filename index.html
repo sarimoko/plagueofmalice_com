@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAGUE OF MALICE // Chico, CA Death Metal</title>
+    
+    <!-- Futuristic & Industrial Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* === CORE THEME VARIABLES === */
+        :root {
+            --bg-void: #030403;
+            --surface-glass: rgba(12, 15, 13, 0.75);
+            --surface-border: rgba(57, 255, 20, 0.18);
+            --plague-green: #39ff14;
+            --plague-glow: rgba(57, 255, 20, 0.3);
+            --dark-emerald: #0a2907;
+            --text-main: #eef2ee;
+            --text-muted: #7a8a7a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-void);
+            color: var(--text-main);
+            font-family: 'Chakra Petch', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Subtle futuristic grid + toxic atmospheric glow */
+            background-image: 
+                radial-gradient(circle at 50% 18%, rgba(57, 255, 20, 0.14) 0%, transparent 55%),
+                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 100% 100%, 45px 45px, 45px 45px;
+        }
+
+        /* === STICKY FUTURISTIC NAVIGATION === */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(3, 4, 3, 0.85);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--surface-border);
+            padding: 14px 24px;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: var(--plague-green);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--plague-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--plague-green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 16px var(--plague-green); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.2s, text-shadow 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--plague-green);
+            text-shadow: 0 0 10px var(--plague-glow);
+        }
+
+        /* === MAIN CONTAINER & SECTIONS === */
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 70px 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .section-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            white-space: nowrap;
+        }
+
+        .section-header span {
+            color: var(--plague-green);
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+        }
+
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--plague-green), transparent);
+            opacity: 0.4;
+        }
+
+        /* === 1. LANDING / BANNER SECTION === */
+        #hero {
+            text-align: center;
+            padding: 50px 0 30px;
+            position: relative;
+        }
+
+        .banner-wrapper {
+            position: relative;
+            max-width: 560px;
+            margin: 0 auto 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Ambient toxic aura behind the Plague Doctor */
+        .banner-wrapper::before {
+            content: "";
+            position: absolute;
+            width: 85%;
+            height: 85%;
+            background: radial-gradient(circle, rgba(57, 255, 20, 0.22) 0%, transparent 70%);
+            filter: blur(35px);
+            z-index: -1;
+            animation: auraBreathe 5s ease-in-out infinite;
+        }
+
+        .hero-logo {
+            width: 100%;
+            height: auto;
+            display: block;
+            /* Blends dark backgrounds seamlessly & adds neon drop glow */
+            mix-blend-mode: lighten;
+            filter: drop-shadow(0 0 25px rgba(57, 255, 20, 0.25));
+            animation: floatLogo 6s ease-in-out infinite;
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); filter: drop-shadow(0 0 35px rgba(57, 255, 20, 0.45)); }
+        }
+
+        @keyframes auraBreathe {
+            0%, 100% { transform: scale(0.95); opacity: 0.7; }
+            50% { transform: scale(1.08); opacity: 1; }
+        }
+
+        .hero-tagline {
+            font-size: 0.95rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--plague-green);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero-sub {
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+
+        /* === 2. SOCIAL MEDIA LINKS (DYNAMIC HUB) === */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .cyber-btn {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            background: var(--surface-glass);
+            border: 1px solid var(--surface-border);
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            backdrop-filter: blur(12px);
+            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+            transition: all 0.25s ease;
+            overflow: hidden;
+        }
+
+        .cyber-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--plague-green);
+            transition: width 0.25s ease;
+            z-index: 0;
+        }
+
+        .cyber-btn span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.25s ease;
+        }
+
+        .cyber-btn .icon {
+            color: var(--plague-green);
+        }
+
+        .cyber-btn:hover {
+            border-color: var(--plague-green);
+            box-shadow: 0 0 25px var(--plague-glow);
+            transform: translateY(-3px);
+        }
+
+        .cyber-btn:hover::before {
+            width: 100%;
+        }
+
+        .cyber-btn:hover span {
+            color: var(--bg-void);
+        }
+
+        /* === 3. ABOUT SECTION === */
+        .glass-card {
+            background: var(--surface-glass);
+            border: 1px solid var(--surface-border);
+            padding: 40px;
+            backdrop-filter: blur(16px);
+            position: relative;
+            clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%);
+        }
+
+        .glass-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: var(--plague-green);
+            box-shadow: 0 0 12px var(--plague-green);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            font-size: 1.05rem;
+            color: #d0d8d0;
+        }
+
+        .about-stats {
+            border-left: 2px solid var(--plague-green);
+            padding-left: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .stat-item small {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .stat-item strong {
+            font-size: 1.15rem;
+            color: var(--plague-green);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* === 4. MERCH SECTION === */
+        .merch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .merch-card {
+            background: var(--surface-glass);
+            border: 1px solid var(--surface-border);
+            padding: 24px;
+            text-align: center;
+            position: relative;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+        }
+
+        .merch-card:hover {
+            border-color: var(--plague-green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .merch-preview {
+            height: 220px;
+            background: radial-gradient(circle, #141c14 0%, #050705 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .merch-preview img {
+            max-height: 85%;
+            width: auto;
+            mix-blend-mode: lighten;
+            opacity: 0.85;
+            transition: transform 0.3s ease;
+        }
+
+        .merch-card:hover .merch-preview img {
+            transform: scale(1.06);
+        }
+
+        .merch-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(57, 255, 20, 0.15);
+            border: 1px solid var(--plague-green);
+            color: var(--plague-green);
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .merch-card h3 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .merch-price {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 18px;
+        }
+
+        /* === 5. BOOKING / CONTACT SECTION === */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 800px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-info h3 {
+            color: var(--plague-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .direct-email {
+            display: inline-block;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--plague-green);
+            padding-bottom: 4px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Embedded Form Placeholder / Styled Form */
+        .embed-form-container {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px dashed rgba(57, 255, 20, 0.35);
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--plague-green);
+            margin-bottom: 6px;
+        }
+
+        .form-control {
+            width: 100%;
+            background: rgba(10, 14, 11, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-main);
+            padding: 12px 15px;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--plague-green);
+            box-shadow: 0 0 12px var(--plague-glow);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--plague-green);
+            color: var(--bg-void);
+            border: none;
+            padding: 15px;
+            font-family: 'Chakra Petch', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+            transition: all 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 20px var(--plague-green);
+        }
+
+        /* === FOOTER === */
+        footer {
+            border-top: 1px solid var(--surface-border);
+            padding: 40px 24px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Futuristic Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-status">
+                <span class="pulse-dot"></span>
+                <span>PLAGUE OF MALICE // CHICO, CA</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#socials">Socials</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#merch">Merch</a></li>
+                <li><a href="#booking">Booking</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- 1. LANDING / BANNER SECTION -->
+        <header id="hero">
+            <div class="banner-wrapper">
+                <!-- Static Logo Image -->
+                <img src="pom_logo.png" alt="Plague of Malice - Death Metal Logo & Plague Doctor" class="hero-logo">
+                
+                <!-- OPTIONAL: If you downloaded the animated video from earlier, uncomment below to use it instead! -->
+                <!-- 
+                <video src="pom_animated.mp4" autoplay loop muted playsinline class="hero-logo"></video>
+                -->
+            </div>
+            <p class="hero-tagline">Northern California Death Metal</p>
+            <p class="hero-sub">Connect to our active portals below for live show announcements, new releases, and official merchandise.</p>
+        </header>
+
+        <!-- 2. SOCIAL MEDIA LINKS -->
+        <section id="socials">
+            <div class="section-header">
+                <span>01 //</span>
+                <h2>Live Transmissions</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="social-grid">
+                <a href="#" target="_blank" class="cyber-btn">
+                    <span>Instagram</span>
+                    <span class="icon">↗</span>
+                </a>
+                <a href="#" target="_blank" class="cyber-btn">
+                    <span>Facebook</span>
+                    <span class="icon">↗</span>
+                </a>
+                <a href="#" target="_blank" class="cyber-btn">
+                    <span>Spotify</span>
+                    <span class="icon">↗</span>
+                </a>
+                <a href="#" target="_blank" class="cyber-btn">
+                    <span>Bandcamp</span>
+                    <span class="icon">↗</span>
+                </a>
+                <a href="#" target="_blank" class="cyber-btn">
+                    <span>YouTube</span>
+                    <span class="icon">↗</span>
+                </a>
+                <a href="#" target="_blank" class="cyber-btn">
+                    <span>Apple Music</span>
+                    <span class="icon">↗</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. ABOUT SECTION -->
+        <section id="about">
+            <div class="section-header">
+                <span>02 //</span>
+                <h2>The Contagion</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="glass-card">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>Forged in the underground scene of <strong>Chico, California</strong>, <strong>Plague of Malice</strong> delivers uncompromising, virulent death metal. Combining blistering technicality, crushing grooves, and dark occult horror aesthetics, the band crafts a relentless live experience.</p>
+                        <p>Anchored in Northern California's DIY metal community, Plague of Malice has shared the stage with regional heavyweights and continues to spread its sonic pestilence across stages throughout the West Coast. Follow our official social channels above for real-time show flyers, set times, and studio updates.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <small>Origin</small>
+                            <strong>Chico, CA</strong>
+                        </div>
+                        <div class="stat-item">
+                            <small>Genre</small>
+                            <strong>Death Metal</strong>
+                        </div>
+                        <div class="stat-item">
+                            <small>Status</small>
+                            <strong>Active // Booking 2026–2027</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. MERCH SECTION -->
+        <section id="merch">
+            <div class="section-header">
+                <span>03 //</span>
+                <h2>Supply Drop // Merch</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="merch-grid">
+                <!-- Merch Item 1 -->
+                <div class="merch-card">
+                    <div class="merch-preview">
+                        <span class="merch-badge">Apparel</span>
+                        <img src="pom_logo.png" alt="Plague Doctor Tee">
+                    </div>
+                    <h3>"Alchemical Plague" Tee</h3>
+                    <p class="merch-price">Heavyweight Black Cotton</p>
+                    <a href="#" target="_blank" class="cyber-btn">
+                        <span>Order via Bandcamp</span>
+                        <span class="icon">↗</span>
+                    </a>
+                </div>
+
+                <!-- Merch Item 2 -->
+                <div class="merch-card">
+                    <div class="merch-preview">
+                        <span class="merch-badge">Physical / Digital</span>
+                        <img src="pom_logo.png" alt="Logo Patch / Music">
+                    </div>
+                    <h3>Official Discography & Patches</h3>
+                    <p class="merch-price">Streaming & Limited Runs</p>
+                    <a href="#" target="_blank" class="cyber-btn">
+                        <span>Visit Merch Store</span>
+                        <span class="icon">↗</span>
+                    </a>
+                </div>
+
+                <!-- Merch Item 3 -->
+                <div class="merch-card">
+                    <div class="merch-preview">
+                        <span class="merch-badge">Live Exclusive</span>
+                        <img src="pom_logo.png" alt="Show Merch">
+                    </div>
+                    <h3>Live Show Exclusives</h3>
+                    <p class="merch-price">Available at the Merch Table</p>
+                    <a href="#socials" class="cyber-btn">
+                        <span>Check Show Dates</span>
+                        <span class="icon">↗</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. BOOKING / CONTACT SECTION -->
+        <section id="booking">
+            <div class="section-header">
+                <span>04 //</span>
+                <h2>Booking & Contact</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="glass-card">
+                <div class="contact-layout">
+                    <div class="contact-info">
+                        <h3>Summon The Plague</h3>
+                        <p>Available for festival appearances, West Coast tours, local support, and press inquiries. Fill out the transmission form or message us directly on Instagram for the fastest response.</p>
+                        <p>
+                            <small style="display:block; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px;">Direct Email:</small>
+                            <a href="mailto:booking@plagueofmalice.com" class="direct-email">booking@plagueofmalice.com</a>
+                        </p>
+                    </div>
+
+                    <!-- Embedded Form Placeholder (Can be swapped with Google Forms, Tally, Typeform, or Formspree) -->
+                    <div class="embed-form-container">
+                        <!-- 
+                            NOTE: To use an embedded form (like Google Forms or Tally.so), 
+                            simply replace this <form> block with your <iframe> embed code!
+                            Or set action="https://formspree.io/f/YOUR_ID" to make this HTML form work directly.
+                        -->
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name / Promoter / Venue</label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name or organization" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Return Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="you@domain.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Proposed Event Date & Location</label>
+                                <input type="text" id="date" name="date" class="form-control" placeholder="e.g., Oct 31 // Chico, CA">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Transmission Details</label>
+                                <textarea id="message" name="message" rows="4" class="form-control" placeholder="Bill details, set length, guarantee/door split..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Transmission ↗</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 PLAGUE OF MALICE // CHICO, CALIFORNIA DEATH METAL // ALL RIGHTS RESERVED</p>
+    </footer>
+
+</body>
+</html>
