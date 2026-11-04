@@ -889,13 +889,55 @@ footer {
                             <button type="submit" class="submit-btn">Send Transmission ↗</button>
                         </form>
                         -->
+                        <!-- Functional Static Form Container -->
+<div class="embed-form-container">
+    <form id="booking-form" action="https://api.web3forms.com/submit" method="POST">
+        
+        <!-- 1. Paste your free Web3Forms Access Key here -->
+        <input type="hidden" name="access_key" value="048e6dd4-a173-4f57-8c0e-6015fa371e87">
+        
+        <!-- 2. Customizes the subject line in the band's inbox -->
+        <input type="hidden" name="subject" value="New Booking / Contact Transmission - Plague of Malice">
+        <input type="hidden" name="from_name" value="Plague of Malice Website">
+
+        <!-- 3. Hidden Honeypot to block spam bots -->
+        <input type="checkbox" name="botcheck" style="display: none;">
+
+        <div class="form-group">
+            <label for="name">Name / Promoter / Venue</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name or organization" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Return Email Address</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="you@domain.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="date">Proposed Event Date & Location</label>
+            <input type="text" id="date" name="event_date_location" class="form-control" placeholder="e.g., Oct 31 // Chico, CA">
+        </div>
+
+        <div class="form-group">
+            <label for="message">Transmission Details</label>
+            <textarea id="message" name="message" rows="4" class="form-control" placeholder="Bill details, set length, guarantee/door split..." required></textarea>
+        </div>
+
+        <button type="submit" id="submit-btn" class="submit-btn">Send Transmission ↗</button>
+
+        <!-- Dynamic Status Message Box -->
+        <div id="form-result" style="display: none; margin-top: 18px; padding: 12px; border: 1px solid var(--plague-green); background: rgba(57, 255, 20, 0.1); color: var(--plague-green); text-align: center; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem;"></div>
+    </form>
+</div>
+
+                        <!--
                         <form action="https://api.web3forms.com/submit" method="POST">
   <input type="hidden" name="access_key" value="048e6dd4-a173-4f57-8c0e-6015fa371e87">
   <input type="text" name="name" required>
   <input type="email" name="email" required>
   <textarea name="message" required></textarea>
   <button type="submit">Submit</button>
-</form>
+</form> -->
                     </div>
                 </div>
             </div>
